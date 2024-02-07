@@ -4,7 +4,7 @@ public class JDBC_Testing {
 
     // Sizden JDBC sorgusu yapmaniz istendiginde yapacaginiz ilk is:
 
-    // DataBase Yoneticisi ile ieltisime gecerek Access Information'lari edinmek.
+    // DataBase Yoneticisi ile iletisime gecerek Access Information'lari edinmek.
 
     /*
     type: jdbc:mysql

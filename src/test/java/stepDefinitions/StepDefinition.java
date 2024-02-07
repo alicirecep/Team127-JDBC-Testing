@@ -2,7 +2,7 @@ package stepDefinitions;
 
 import io.cucumber.java.en.Given;
 import manage.QueryManage;
-import org.junit.Assert;
+import static org.junit.Assert.*;
 import utilities.JDBCReusableMethods;
 
 import java.sql.ResultSet;
@@ -10,12 +10,13 @@ import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
 
-import static org.junit.Assert.assertEquals;
+
 
 public class StepDefinition {
 
     ResultSet resultSet;
     String query;
+    int rowCount;
     QueryManage queryManage = new QueryManage();
 
     @Given("Database baglantisi kurulur.")
@@ -70,6 +71,58 @@ public class StepDefinition {
             assertEquals(expectedName.get(i),isimler.get(i));
             System.out.println(i +". index dogrulandi");
         }
+
+    }
+
+ //   ------------- QUERY03------------
+
+    @Given("Query03 hazirlanir ve execute edilir.")
+    public void query03_hazirlanir_ve_execute_edilir() throws SQLException {
+        query = queryManage.getQuery03();
+        resultSet = JDBCReusableMethods.getStatement().executeQuery(query);
+    }
+    @Given("ResultSet03 sonuclari islenir.")
+    public void result_set03_sonuclari_islenir() throws SQLException {
+
+        String expectedName= "Mehmet Genç";
+        resultSet.next();
+        String actualName = resultSet.getString("firstname")+ " " + resultSet.getString("lastname");
+
+        assertEquals(expectedName,actualName);
+        System.out.println("expected= " + expectedName);
+        System.out.println("actual= " + actualName);
+    }
+
+    //-----------------QUERY04---------------------
+
+    @Given("Query04 hazirlanir ve execute edilir.")
+    public void query04_hazirlanir_ve_execute_edilir() throws SQLException {
+        query= queryManage.getQuery04();
+        resultSet = JDBCReusableMethods.getStatement().executeQuery(query);
+    }
+    @Given("ResultSet04 sonuclari islenir.")
+    public void result_set04_sonuclari_islenir() throws SQLException {
+        while(resultSet.next()){
+            String kullanici_id = resultSet.getString("user_id");
+            String browserOS = resultSet.getString("browser_os");
+
+            System.out.println("kullanici_id " + kullanici_id);
+            System.out.println("Browser & OS " + browserOS);
+        }
+    }
+
+// ----------------------UPDATE QUERY (statement ile) ---------------------------
+
+    @Given("Update query01 olusturulur ve execute edilir.")
+    public void update_query01_olusturulur_ve_execute_edilir() throws SQLException {
+        query= queryManage.getUpdateQuery05();
+       rowCount = JDBCReusableMethods.getStatement().executeUpdate(query);
+
+    }
+    @Given("Sonuclar dogrulanir.")
+    public void sonuclar_dogrulanir() {
+
+        assertEquals(18,rowCount);
 
     }
 
