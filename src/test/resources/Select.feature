@@ -6,8 +6,7 @@ Feature: SELECT QUERY EXECUTE
     * Database baglantisi kurulur.
 
   @query01
-  Scenario: Database içindeki "deposits" toblosunda
-            "amount" değeri 100$ ile 500$ arasında olan user_id’leri doğrulayınız.
+  Scenario: Database içindeki "deposits" toblosunda "amount" değeri 100$ ile 500$ arasında olan user_id’leri doğrulayınız.
 
 
     * Query01 hazirlanir ve execute edilir.

@@ -26,12 +26,17 @@ public class JDBCReusableMethods {
     }
 
 
-    public static void updateQuery(String query) throws SQLException {
+    public static int updateQuery(String query) throws SQLException {
+        getConnection();
+        getStatement();
 
-        int st =  statement.executeUpdate(query);
+        int affectedRows = statement.executeUpdate(query);
 
-        System.out.println(st);
+        System.out.println(affectedRows);
+        return affectedRows;
     }
+
+
 
 
     public static synchronized void update(String query) throws SQLException {

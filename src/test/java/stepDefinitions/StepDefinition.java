@@ -116,15 +116,19 @@ public class StepDefinition {
     @Given("Update query01 olusturulur ve execute edilir.")
     public void update_query01_olusturulur_ve_execute_edilir() throws SQLException {
         query= queryManage.getUpdateQuery05();
-       rowCount = JDBCReusableMethods.getStatement().executeUpdate(query);
+       rowCount= JDBCReusableMethods.updateQuery(query);
 
     }
     @Given("Sonuclar dogrulanir.")
     public void sonuclar_dogrulanir() {
 
-        assertEquals(18,rowCount);
+        assertEquals(18, rowCount);
 
     }
+
+    // -----------------------UPDATE QUERY (Prepared Statement)--------
+
+
 
 }
 
