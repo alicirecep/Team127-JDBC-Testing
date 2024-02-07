@@ -5,6 +5,7 @@ import manage.QueryManage;
 import static org.junit.Assert.*;
 import utilities.JDBCReusableMethods;
 
+import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
@@ -15,6 +16,7 @@ import java.util.List;
 public class StepDefinition {
 
     ResultSet resultSet;
+    PreparedStatement preparedStatement;
     String query;
     int rowCount;
     QueryManage queryManage = new QueryManage();
@@ -127,6 +129,49 @@ public class StepDefinition {
     }
 
     // -----------------------UPDATE QUERY (Prepared Statement)--------
+
+    @Given("Prepared query02 olusturulur ve execute edilir.")
+    public void prepared_query02_olusturulur_ve_execute_edilir() throws SQLException {
+
+       query= queryManage.getPreparedQuery05();
+       preparedStatement = JDBCReusableMethods.getConnection().prepareStatement(query);
+       preparedStatement.setInt(1, 444444444);
+       preparedStatement.setString(2, "%e_");
+
+      rowCount = preparedStatement.executeUpdate();
+
+    }
+    @Given("Prepared query02 Sonuclar dogrulanir.")
+    public void prepared_query02_sonuclar_dogrulanir() {
+
+        assertEquals(18,rowCount);
+
+    }
+
+// -------------------------Query 03 (PreparedStatement)-------------------
+
+    @Given("Prepared query03 olusturulur ve execute edilir.")
+    public void prepared_query03_olusturulur_ve_execute_edilir() throws SQLException {
+        query= queryManage.getPreparedQuery06();
+         preparedStatement = JDBCReusableMethods.getConnection().prepareStatement(query);
+
+     // INSERT INTO admin_password_resets (id,email,token,status) VALUES (?,?,?,?);
+
+         preparedStatement.setInt(1,102);
+         preparedStatement.setString(2,"email33@gmail.com");
+         preparedStatement.setString(3,"125478");
+         preparedStatement.setInt(4,1);
+         rowCount = preparedStatement.executeUpdate();
+
+    }
+    @Given("Prepared query03 Sonuclar dogrulanir.")
+    public void prepared_query03_sonuclar_dogrulanir() {
+
+        assertEquals(1,rowCount);
+    }
+
+
+
 
 
 

@@ -20,3 +20,13 @@ Feature: UPDATE (update delete insert queryleri)
       * Prepared query02 olusturulur ve execute edilir.
       * Prepared query02 Sonuclar dogrulanir.
       * Database baglantisi kapatilir.
+
+  @query07
+    Scenario: admin_password_resets tablosuna yeni (id,email,token,status,created_at datalarla)
+              veri girisi yapiniz.
+
+    # id,email,token,status,created_at
+
+      * Prepared query03 olusturulur ve execute edilir.
+      * Prepared query03 Sonuclar dogrulanir.
+      * Database baglantisi kapatilir.

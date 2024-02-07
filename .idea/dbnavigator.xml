@@ -17,7 +17,7 @@
   </component>
   <component name="DBNavigator.Project.DatabaseConsoleManager">
     <connection id="3292697c-4764-4d76-8f39-2d821d1f0d26">
-      <console name="qa_loantec" type="STANDARD" schema="" session="Main"><![CDATA[-- Database üzerinde "Users" tablosunda "country_code=TR" olmayan 
+      <console name="qa_loantec" type="STANDARD" schema="u168183796_qaloantec" session="Main"><![CDATA[-- Database üzerinde "Users" tablosunda "country_code=TR" olmayan 
 -- ve "id=11" olan datanın "firstname" ve "lastname" bilgilerini 
 -- doğrulayınız.
 
@@ -28,17 +28,21 @@ select firstname, lastname from users where country_code NOT like 'TR' and id=11
 -- os leri gruplayip ekrana yazdiriniz 
 
 select user_id, group_concat(browser, ' - ', os ) as browser_os from user_logins group by user_id;
-update users set mobile= '987654321' where username like '%e_';
-select mobile from users where username like '%e_';]]></console>
+update users set mobile= '98711111' where username like '%e_';
+select mobile from users where username like '%e_';
+INSERT INTO admin_password_resets (id,email,token,status) 
+ VALUES (?,?,?,?);
+
+
+SELECT * FROM admin_password_resets;
+SELECT * FROM u168183796_qaloantec.admin_password_resets;]]></console>
     </connection>
   </component>
   <component name="DBNavigator.Project.DatabaseEditorStateManager">
     <last-used-providers />
   </component>
   <component name="DBNavigator.Project.DatabaseFileManager">
-    <open-files>
-      <object connection-id="3292697c-4764-4d76-8f39-2d821d1f0d26" object-ref="consoles/qa_loantec" />
-    </open-files>
+    <open-files />
   </component>
   <component name="DBNavigator.Project.DatabaseSessionManager">
     <connection id="3292697c-4764-4d76-8f39-2d821d1f0d26" />
