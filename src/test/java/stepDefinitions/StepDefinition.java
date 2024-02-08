@@ -310,17 +310,6 @@ public void update_logs_tablosuna_insert_query_hazirlanir_ve_calistirilir() thro
 
     }
 
-
-
-
-
-
-
-
-
-
-
-
 }
 
 
