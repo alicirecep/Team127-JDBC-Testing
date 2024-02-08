@@ -11,6 +11,13 @@ public class QueryManage {
     private String preparedQuery05= "update users set mobile= ? where username like ?";
     private String preparedQuery06 = "INSERT INTO admin_password_resets (id,email,token,status) VALUES (?,?,?,?);";
 
+    private String preparedQuery08 = "UPDATE admin_notifications SET is_read = ? where id = ?";
+
+    private String preparedQuery09Insert = "insert into update_logs (id,version,update_log,created_at) values(?,?,?,?)";
+    private String preparedQuery09Update = "UPDATE update_logs set update_log = ? Where version = ? and id = ?";
+    private String preparedQuery10Delete= "DELETE FROM u168183796_qaloantec.update_logs WHERE id=?";
+    private String preparedQuery11Insert= "INSERT INTO support_attachments (id, support_message_id, attachment, created_at) VALUES(?, ?, ?, ?)";
+    private String preparedQuery11Delete= "delete from u168183796_qaloantec.support_attachments where support_message_id = ?";
     //------------ GETTER------------------
 
 
@@ -40,5 +47,29 @@ public class QueryManage {
 
     public String getPreparedQuery06() {
         return preparedQuery06;
+    }
+
+    public String getPreparedQuery08() {
+        return preparedQuery08;
+    }
+
+    public String getPreparedQuery09Insert() {
+        return preparedQuery09Insert;
+    }
+
+    public String getPreparedQuery09Update() {
+        return preparedQuery09Update;
+    }
+
+    public String getPreparedQuery10Delete() {
+        return preparedQuery10Delete;
+    }
+
+    public String getPreparedQuery11Insert() {
+        return preparedQuery11Insert;
+    }
+
+    public String getPreparedQuery11Delete() {
+        return preparedQuery11Delete;
     }
 }

@@ -35,7 +35,19 @@ INSERT INTO admin_password_resets (id,email,token,status)
 
 
 SELECT * FROM admin_password_resets;
-SELECT * FROM u168183796_qaloantec.admin_password_resets;]]></console>
+SELECT * FROM u168183796_qaloantec.admin_password_resets;
+
+UPDATE admin_notifications SET is_read = ? where id = ?;
+#id= 773 
+SELECT * FROM u168183796_qaloantec.admin_notifications;
+
+SELECT * FROM u168183796_qaloantec.update_logs;
+
+insert into update_logs (id,version,update_log,created_at) values(?,?,?,?);
+
+UPDATE update_logs set update_log = ? Where version = ? and id = ?;
+
+SELECT * FROM u168183796_qaloantec.update_logs;]]></console>
     </connection>
   </component>
   <component name="DBNavigator.Project.DatabaseEditorStateManager">
