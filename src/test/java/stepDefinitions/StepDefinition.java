@@ -113,7 +113,7 @@ public class StepDefinition {
         }
     }
 
-// ----------------------UPDATE QUERY (statement ile) ---------------------------
+// ----------------------QUERY(05) (statement ile) ---------------------------
 
     @Given("Update query01 olusturulur ve execute edilir.")
     public void update_query01_olusturulur_ve_execute_edilir() throws SQLException {
@@ -128,7 +128,7 @@ public class StepDefinition {
 
     }
 
-    // -----------------------UPDATE QUERY (Prepared Statement)--------
+    // -----------------------QUERY(06) (Prepared Statement)--------
 
     @Given("Prepared query02 olusturulur ve execute edilir.")
     public void prepared_query02_olusturulur_ve_execute_edilir() throws SQLException {
@@ -148,7 +148,7 @@ public class StepDefinition {
 
     }
 
-// -------------------------Query 03 (PreparedStatement)-------------------
+// -------------------------Query 07 (PreparedStatement)-------------------
 
     @Given("Prepared query03 olusturulur ve execute edilir.")
     public void prepared_query03_olusturulur_ve_execute_edilir() throws SQLException {
@@ -171,7 +171,7 @@ public class StepDefinition {
     }
 
 
-
+// -------------------------Query 08 (PreparedStatement)-------------------
 
 
 
